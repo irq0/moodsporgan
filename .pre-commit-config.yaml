@@ -1,0 +1,60 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: check-yaml
+        args:
+          - --allow-multiple-documents
+      - id: check-added-large-files
+      - id: end-of-file-fixer
+      - id: debug-statements
+      - id: mixed-line-ending
+      - id: detect-private-key
+      - id: destroyed-symlinks
+      - id: check-shebang-scripts-are-executable
+      - id: check-case-conflict
+
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 3.0.0
+    hooks:
+      - id: forbid-binary
+        exclude: >-
+          (?x)^(
+            _doc/.*
+          )$
+      - id: git-check
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.6
+    hooks:
+      - id: codespell
+        args: ["--ignore-words-list", "edn,juxt"]
+
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.4.0
+    hooks:
+      - id: markdownlint-cli2
+
+  - repo: https://github.com/allie-jo/cljfmt-docker
+    rev: v0.9.1
+    hooks:
+     - id: cljfmt-docker
+
+  - repo: https://github.com/clj-kondo/clj-kondo
+    rev: v2023.12.15
+    hooks:
+        - id: clj-kondo-docker
+
+  - repo: https://github.com/streetsidesoftware/cspell-cli
+    rev: v8.0.0
+    hooks:
+    - id: cspell
+      args:
+        - --no-must-find-files
+        - --no-progress
+        - --no-summary
+        - --gitignore
+      files: >-
+        (?x)^README\.md$

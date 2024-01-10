@@ -1,0 +1,6 @@
+dictionaryDefinitions:
+  - name: moodsporgan
+    path: _doc/moodsporgan.dict
+    addWords: true
+dictionaries:
+  - moodsporgan
